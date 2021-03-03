@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLIIT</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+
+    // function printHello(){
+    //      console.log("Hello World");
+    //}
+
+
+    //printHello();
+
+    var printHello = function () {
+        console.log("Hello World");
+    };
+
+    //  printHello();
+    function print(func){
+        func();
+    }
+
+    print(printHello);
+
+
+    var person = {
+        name : "Imdaadh",
+        age : 21,
+        printname : function (){
+            console.log(this.name);
+        }
+    };
+
+    person.printname();
+
+
+    var vehicleName = 'Toyota';
+
+    function printVehicleName()
+    {
+        console.log(this.vehicleName);
+    }
+
+    printVehicleName()
+
+
+    var Car = {
+
+        vehicleName : 'Nissan',
+        getVehicleName : function (){
+            return function () {
+                console.log(this.vehicleName)
+            }
+        }
+    }
+
+    //Car.getVehicleName();
+    var execute = Car.getVehicleName()
+    execute = execute.bind(Car)
+    execute();
+
+
+
+    function Taxcalculator(percentage)
+    {
+        return function (amount) {
+            return amount * percentage;
+        }
+    }
+    // function closure
+    var calculator = Taxcalculator(.12)
+    console.log(calculator(200))
+
+    fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+        return response.json();
+    }).then(function (data)
+    {console.log(data)});
+
+</script>
+
+
+
+</body>
+</html>
